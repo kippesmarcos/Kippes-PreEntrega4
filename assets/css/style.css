@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.container {
+    max-width: 800px;
+    margin: 100px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-list, .cart {
+    width: 48%;
+}
+
+.product-list h2, .cart h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.cart {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.cart p {
+    font-weight: bold;
+}
+
+.ticket {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.ticket h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.ticket-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.ticket-details div {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.ticket-details button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px; /* Agregamos margen superior para separar el botón */
+}
+
+.ticket-details button:hover {
+    background-color: #45a049;
+}

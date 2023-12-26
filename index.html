@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Kippes-PreEntrega3</title>
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Carrefour - Buenos Aires</h1>
+        </div>
+
+        <div class="main-content">
+            <div class="product-list">
+                <h2>Productos Disponibles</h2>
+                <ul id="productList"></ul>
+            </div>
+
+            <div class="cart">
+                <h2>Carrito de Compras</h2>
+                <div id="cartItems"></div>
+                <p id="total">Total: $0.00</p>
+                <button onclick="completePurchase()">Finalizar Compra</button>
+            </div>
+        </div>
+
+        <div class="ticket" id="ticket">
+            <h2>Resumen de Compra</h2>
+            <div class="ticket-details"></div>
+        </div>
+    </div>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
