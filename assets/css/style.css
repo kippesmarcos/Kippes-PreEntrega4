@@ -1,88 +1,77 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f8f8;
     margin: 0;
     padding: 0;
-    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 .container {
-    max-width: 800px;
-    margin: 100px auto;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.header {
-    text-align: center;
+#productList, #cartItems, #total, #ticket {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+#productList:hover, #cartItems:hover, #total:hover, #ticket:hover {
+    transform: scale(1.05);
+}
+
+#productList li, #cartItems p {
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #3d3d3d;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #3d3d3d;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 20px;
 }
 
-.main-content {
-    display: flex;
-    justify-content: space-between;
+label {
+    margin-bottom: 8px;
+    color: #555;
 }
 
-.product-list, .cart {
-    width: 48%;
-}
-
-.product-list h2, .cart h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    margin-bottom: 10px;
-}
-
-.cart {
-    border: 1px solid #ccc;
+input {
     padding: 10px;
-    border-radius: 5px;
-}
-
-.cart p {
-    font-weight: bold;
-}
-
-.ticket {
+    margin-bottom: 15px;
     width: 100%;
-    margin-top: 20px;
-}
-
-.ticket h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.ticket-details {
-    display: flex;
-    flex-direction: column;
-}
-
-.ticket-details div {
+    box-sizing: border-box;
     border: 1px solid #ccc;
-    padding: 10px;
     border-radius: 5px;
-    margin-bottom: 10px;
 }
 
-.ticket-details button {
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    padding: 10px;
-    font-size: 16px;
-    cursor: pointer;
-    margin-top: 10px; /* Agregamos margen superior para separar el botón */
-}
-
-.ticket-details button:hover {
-    background-color: #45a049;
+#ticket {
+    white-space: pre-line;
+    background-color: #ecf0f1;
+    color: #333;
 }

@@ -1,38 +1,31 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kippes-Entrega4</title>
     <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Kippes-PreEntrega3</title>
-    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Carrefour - Buenos Aires</h1>
-        </div>
+    <div id="productList"></div>
+    <div id="cartItems"></div>
+    <div id="total"></div>
+    <div id="ticket"></div>
 
-        <div class="main-content">
-            <div class="product-list">
-                <h2>Productos Disponibles</h2>
-                <ul id="productList"></ul>
-            </div>
+    <form id="userForm">
+        <label for="firstName">Nombre:</label>
+        <input type="text" id="firstName" name="firstName" required>
 
-            <div class="cart">
-                <h2>Carrito de Compras</h2>
-                <div id="cartItems"></div>
-                <p id="total">Total: $0.00</p>
-                <button onclick="completePurchase()">Finalizar Compra</button>
-            </div>
-        </div>
+        <label for="lastName">Apellido:</label>
+        <input type="text" id="lastName" name="lastName" required>
 
-        <div class="ticket" id="ticket">
-            <h2>Resumen de Compra</h2>
-            <div class="ticket-details"></div>
-        </div>
-    </div>
+        <label for="paymentMethod">Método de pago (Efectivo/Tarjeta):</label>
+        <input type="text" id="paymentMethod" name="paymentMethod" required>
 
-    <script src="./assets/js/script.js"></script>
+        <button type="submit">Enviar</button>
+    </form>
+
+<script src="./assets/js/script.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 </body>
 </html>

@@ -31,16 +31,20 @@ function displayProducts() {
 }
 
 function getUserInformation() {
-    firstName = prompt('Por favor, ingrese su nombre:');
-    lastName = prompt('Ahora, ingrese su apellido:');
-    paymentMethod = prompt('¿Cómo desea pagar? (Efectivo/Tarjeta)');
+    const userForm = document.getElementById('userForm');
+    userForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        firstName = userForm.elements['firstName'].value;
+        lastName = userForm.elements['lastName'].value;
+        paymentMethod = userForm.elements['paymentMethod'].value;
 
-    if (firstName && lastName) {
-        alert(`¡Hola, ${firstName} ${lastName}! Bienvenido a nuestra tienda.`);
-        completePurchase();
-    } else {
-        alert('Nombre y apellido son requeridos. Recargue la página para intentar nuevamente.');
-    }
+        if (firstName && lastName) {
+            alert(`¡Hola, ${firstName} ${lastName}! Bienvenido a nuestra tienda.`);
+            completePurchase();
+        } else {
+            alert('Nombre y apellido son requeridos. Recargue la página para intentar nuevamente.');
+        }
+    });
 }
 
 function displayCart() {
@@ -128,6 +132,9 @@ function completePurchase() {
 
     ticketDiv.textContent = ticketContent;
 
+    const cartItemsDiv = document.getElementById('cartItems');
+    cartItemsDiv.style.display = 'none';
+
     cart = [];
     displayCart();
 }
@@ -145,7 +152,7 @@ function generateRandomAddress() {
 }
 
 function generateRandomCardNumber() {
-    return Math.floor(1000 + Math.random() * 9000); 
+    return Math.floor(1000 + Math.random() * 9000);
 }
 
 function updateLocalStorage() {
