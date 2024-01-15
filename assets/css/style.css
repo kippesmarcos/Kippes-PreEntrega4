@@ -1,5 +1,5 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #f8f8f8;
     margin: 0;
     padding: 0;
@@ -11,67 +11,121 @@ body {
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#productList, #cartItems, #total, #ticket {
     background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    margin-bottom: 20px;
     padding: 20px;
-    max-width: 400px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    animation: fadeIn 0.5s ease-out;
 }
 
-#productList:hover, #cartItems:hover, #total:hover, #ticket:hover {
-    transform: scale(1.05);
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-#productList li, #cartItems p {
+label {
+    display: block;
     margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+input:focus {
+    border-color: #535353;
 }
 
 button {
-    background-color: #3d3d3d;
+    background-color: #535353;
     color: white;
-    padding: 10px 15px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+    background-color: #535353;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background-color: #fff;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+li:hover {
+    transform: scale(1.02);
+}
+
+li button {
+    background-color: #535353;
+    color: white;
+    padding: 8px 12px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease-in-out;
 }
 
-button:hover {
-    background-color: #3d3d3d;
+li button:hover {
+    background-color: #535353;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
-label {
-    margin-bottom: 8px;
-    color: #555;
-}
-
-input {
-    padding: 10px;
-    margin-bottom: 15px;
-    width: 100%;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+#total {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
 }
 
 #ticket {
+    font-family: 'Courier New', monospace;
     white-space: pre-line;
-    background-color: #ecf0f1;
-    color: #333;
+    margin-top: 20px;
+    text-align: left;
+    animation: fadeIn 0.5s ease-out;
+}
+
+#messageBox {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    transition: opacity 0.3s ease-in-out;
+}
+
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+    }
 }
