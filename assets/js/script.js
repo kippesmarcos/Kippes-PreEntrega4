@@ -1,10 +1,6 @@
 const appState = {
     cart: JSON.parse(localStorage.getItem('cart')) || [],
-    products: [
-        { "id": 1, "name": "Yerba Playadito", "price": 1500 },
-        { "id": 2, "name": "Pepitos", "price": 850 },
-        { "id": 3, "name": "Champagne", "price": 3000 }
-    ],
+    products: [],
     total: 0,
     firstName: "",
     lastName: "",
@@ -18,6 +14,15 @@ function initializeApp() {
 }
 
 function loadProducts() {
+    fetch('https://fakestoreapi.com/products')
+        .then(response => response.json())
+        .then(data => {
+            appState.products = data;
+            displayProducts();
+        })
+        .catch(error => {
+            console.error('Error al recuperar productos:', error);
+        });
 }
 
 function displayProducts() {
@@ -26,7 +31,7 @@ function displayProducts() {
 
     appState.products.forEach(product => {
         const li = document.createElement('li');
-        li.innerHTML = `${product.name} - $${product.price} <button onclick="addToCart(${product.id})">Agregar al Carrito</button>`;
+        li.innerHTML = `${product.title} - $${product.price} <button onclick="addToCart(${product.id})">Agregar al Carrito</button>`;
         productList.appendChild(li);
     });
 
@@ -80,7 +85,7 @@ function addToCart(productId) {
         } else {
             const newItem = {
                 id: productToAdd.id,
-                name: productToAdd.name,
+                name: productToAdd.title,
                 price: productToAdd.price,
                 quantity: 1,
                 subtotal: productToAdd.price,
@@ -169,7 +174,7 @@ function showMessage(message, isError = false) {
 
     setTimeout(() => {
         messageBox.textContent = '';
-    }, 3000); 
+    }, 3000);
 }
 
 document.addEventListener('DOMContentLoaded', initializeApp);
