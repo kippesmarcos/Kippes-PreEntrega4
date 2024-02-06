@@ -9,7 +9,6 @@ const appState = {
 
 function initializeApp() {
     loadProducts();
-    displayProducts();
     getUserInformation();
 }
 
@@ -31,12 +30,19 @@ function displayProducts() {
 
     appState.products.forEach(product => {
         const li = document.createElement('li');
-        li.innerHTML = `${product.title} - $${product.price} <button onclick="addToCart(${product.id})">Agregar al Carrito</button>`;
+        li.innerHTML = `${product.title} - $${product.price} <button data-id="${product.id}" class="addToCartBtn">Agregar al Carrito</button>`;
         productList.appendChild(li);
     });
 
     updateTotalElement();
 }
+
+document.getElementById('productList').addEventListener('click', function (event) {
+    if (event.target.classList.contains('addToCartBtn')) {
+        const productId = parseInt(event.target.getAttribute('data-id'));
+        addToCart(productId);
+    }
+});
 
 function getUserInformation() {
     const userForm = document.getElementById('userForm');
@@ -63,15 +69,21 @@ function displayCart() {
         cartDiv.innerHTML = '<p>El carrito está vacío.</p>';
     } else {
         appState.cart.forEach(item => {
-            const p = document.createElement('p');
-            p.innerHTML = `${item.name} - Cantidad: ${item.quantity} - Subtotal: $${item.subtotal} <button onclick="removeFromCart(${item.id})">Eliminar</button>`;
-            cartDiv.appendChild(p);
+            const p = `<p>${item.name} - Cantidad: ${item.quantity} - Subtotal: $${item.subtotal} <button data-id="${item.id}" class="removeFromCartBtn">Eliminar</button></p>`;
+            cartDiv.innerHTML += p;
         });
     }
 
     updateTotalElement();
     updateLocalStorage();
 }
+
+document.getElementById('cartItems').addEventListener('click', function (event) {
+    if (event.target.classList.contains('removeFromCartBtn')) {
+        const productId = parseInt(event.target.getAttribute('data-id'));
+        removeFromCart(productId);
+    }
+});
 
 function addToCart(productId) {
     const productToAdd = appState.products.find(product => product.id === productId);
