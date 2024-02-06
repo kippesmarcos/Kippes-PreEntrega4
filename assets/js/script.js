@@ -53,7 +53,7 @@ function getUserInformation() {
         appState.paymentMethod = userForm.elements['paymentMethod'].value;
 
         if (appState.firstName && appState.lastName) {
-            showMessage(`¡Hola, ${appState.firstName} ${appState.lastName}! Bienvenido a nuestra tienda.`);
+            showMessage(`¡Hola, ${appState.firstName} ${appState.lastName}! Tu compra fue finalizada.`);
             completePurchase();
         } else {
             showMessage('Nombre y apellido son requeridos. Recargue la página para intentar nuevamente.', true);
